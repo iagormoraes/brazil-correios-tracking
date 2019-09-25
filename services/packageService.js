@@ -8,7 +8,7 @@ const {
     formatDescription
 } = require('../lib/formatters');
 
-const packageService = {}
+const packageService = {};
 
 packageService.getPackageInfo = (packNum) => {
     return new Promise((resolve, reject) => {
