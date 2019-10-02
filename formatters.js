@@ -44,5 +44,5 @@ module.exports = {
     formatLocal,
     formatHour,
     formatType,
-    formatDescription
+    formatDescription,
 };
