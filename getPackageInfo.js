@@ -46,7 +46,7 @@ function getPackageInfo(packNum) {
                     };
                 });
 
-                packHistory.some((historyElement, i) => {
+                packHistory.some(historyElement => {
                     switch (historyElement.type) {
                         case 'Objeto entregue ao destinatário':
                             return (progress = 100);
