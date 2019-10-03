@@ -80,4 +80,34 @@ function getPackageInfo(packNum) {
     });
 }
 
-module.exports = getPackageInfo;
+function sortByAsc(previousPack, nextPack){
+    const prev = new Date(previousPack.info.date);
+    const next = new Date(nextPack.info.date);
+
+
+    return prev.getTime() >= next.getTime() ? -1 : 1;
+}
+
+function sortByDesc(previousPack, nextPack){
+    const prev = new Date(previousPack.info.date);
+    const next = new Date(nextPack.info.date);
+
+    return prev.getTime() <= next.getTime() ? -1 : 1;
+}
+
+function sortProgressAsc(previousPack, nextPack){
+
+   return previousPack.progress > nextPack.progress ? -1 : 1
+}
+function sortProgressDesc(previousPack, nextPack){
+
+    return previousPack.progress < nextPack.progress ? -1 : 1
+}
+
+module.exports = {
+    getPackageInfo,
+    sortByAsc,
+    sortByDesc,
+    sortProgressAsc,
+    sortProgressDesc
+};

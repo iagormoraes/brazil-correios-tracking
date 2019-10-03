@@ -1,26 +1,31 @@
 const express = require("express");
 const app = express();
-const getPackageInfo = require("./getPackageInfo");
+const {getPackageInfo, sortByAsc, sortByDesc, sortProgressAsc, sortProgressDesc }= require("./getPackageInfo");
 
 //example: http://localhost:8081/package/OH756347841BR
+//sortByProgress - asc or desc
+//sortByDate - asc or desc
+//http://localhost:8082/package?package=OH756347841BR&package=OH756347841BR&sortByDate=asc
 app.get("/package", async (req, res) => {
   try {
-    console.log('req.query.package', req.query);
 
-    let promises = req.query.package.map(package => {
+
+    const sortByDate = req.query.sortByDate;
+    const sortByProgress = req.query.sortByProgress;
+
+    let promises = await Promise.all(req.query.package.map(package => {
       return getPackageInfo(package);
-    });
-    let resolvedPromises = await Promise.all(promises);
+    }));
+
     let flags = [];
     let results = [];
     let index = 0;
-    console.log(resolvedPromises);
-
-    resolvedPromises.forEach(el =>{
-      console.log(el);
+ 
+    //Remove duplicates if there are any in results.
+    promises.forEach(el =>{
+ 
       el.packHistory.forEach(pack =>{
-        console.log('pack: ', pack);
-        console.log('flags:', flags);
+      
         if (!flags[JSON.stringify(pack)]){
           flags[JSON.stringify(pack)] = true;
           results.push(pack);
@@ -28,12 +33,23 @@ app.get("/package", async (req, res) => {
       })
     });
 
-    console.log('---------------');
-    console.log(results);
+   
+    //Sort by parameter.
+    if (sortByDate){
+      if(sortByDate.toLowerCase() === 'asc'){
+        results = results.sort(sortByAsc);
+      } else if (sortByDate.toLowerCase() === 'desc'){
+        results = results.sort(sortByDesc);
+      }
+    } else if (sortByProgress){
+      if(sortByProgress.toLowerCase() === 'asc'){
+        results = results.sort(sortProgressAsc);
+      } else if (sortByProgress.toLowerCase() === 'desc'){
+        results = results.sort(sortProgressDesc);
+      }
+    }
 
-    const packInfo = await getPackageInfo(req.query.package);
-
-    res.status(200).json(packInfo);
+    res.status(200).json(results);
   } catch (error) {
     res.status(404).json(error);
   }
