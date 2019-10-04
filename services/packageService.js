@@ -1,8 +1,10 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const { formatDate, formatLocal, formatHour, formatType, formatDescription } = require('./formatters');
+const { formatDate, formatLocal, formatHour, formatType, formatDescription } = require('../lib/formatters');
 
-function getPackageInfo(packNum) {
+const packageService = {};
+
+packageService.getPackageInfo = packNum => {
     return new Promise((resolve, reject) => {
         request.post(
             {
@@ -66,6 +68,6 @@ function getPackageInfo(packNum) {
             }
         );
     });
-}
+};
 
-module.exports = getPackageInfo;
+module.exports = packageService;
