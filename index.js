@@ -1,18 +1,11 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const getPackageInfo = require("./getPackageInfo");
 const { sortPackInfoByProgress, sortPackHistoryByDate } = require("./utils");
+const packageRouter = require('./routes/package');
 
-//example: http://localhost:8081/package/OH756347841BR
-app.get("/package/:package", async (req, res) => {
-  try {
-    const packInfo = await getPackageInfo(req.params.package);
-
-    res.status(200).json(packInfo);
-  } catch (error) {
-    res.status(404).json(error);
-  }
-});
+// routes
+app.use(packageRouter);
 
 // example: http://localhost:8081/packages?id=OH756347841BR&id=OH756347841BR
 http: app.get("/packages", async (req, res) => {
