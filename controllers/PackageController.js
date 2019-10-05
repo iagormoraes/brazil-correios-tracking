@@ -1,17 +1,17 @@
 const packageService = require('../services/packageService');
 const { sortPackInfoByProgress, sortPackHistoryByDate } = require('../utils');
-const PackageController = {};
 
-PackageController.getPackage = async (req, res) => {
+const getPackage = async (req, res) => {
     try {
         const packInfo = await packageService.getPackageInfo(req.params.package);
-        res.status(200).json(packInfo);
+
+        res.status(200).json({ ...packInfo, ...req.requestUser });
     } catch (error) {
         res.status(404).json(error);
     }
 };
 
-PackageController.getPackages = async (req, res) => {
+const getPackages = async (req, res) => {
     try {
         const packageIds = req.query.id;
         const promises = [];
@@ -31,10 +31,13 @@ PackageController.getPackages = async (req, res) => {
             })
             .sort(sortPackInfoByProgress);
 
-        res.status(200).json(packList);
+        res.status(200).json({ packList, ...req.requestUser });
     } catch (error) {
         res.status(404).json(error);
     }
 };
 
-module.exports = PackageController;
+module.exports = {
+    getPackage,
+    getPackages,
+};
