@@ -1,6 +1,6 @@
 {
     "name": "brazil-correios-tracking",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "main": "index.js",
     "repository": "https://github.com/iagorm/brazil-correios-tracking",
     "license": "MIT",

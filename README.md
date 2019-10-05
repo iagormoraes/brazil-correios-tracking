@@ -12,8 +12,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 The project recommends at time of development:
 
-- [`nodeJS`](https://nodejs.org/en/download/) (10.16.3)
-- [`yarn`](https://yarnpkg.com/en/docs/install) (1.17.3)
+-   [`nodeJS`](https://nodejs.org/en/download/) (10.16.3)
+-   [`yarn`](https://yarnpkg.com/en/docs/install) (1.17.3)
 
 ### Installing
 
@@ -26,9 +26,11 @@ $ yarn start
 
 ## Built With
 
-- [cheerio](https://github.com/cheeriojs/cheerio) - Fast, flexible, and lean implementation of core jQuery designed specifically for the server.
-- [express](http://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
-- [request](https://github.com/request/request) - Request is designed to be the simplest way possible to make http calls.
+-   [cheerio](https://github.com/cheeriojs/cheerio) - Fast, flexible, and lean implementation of core jQuery designed specifically for the server.
+-   [express](http://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
+-   [request](https://github.com/request/request) - Request is designed to be the simplest way possible to make http calls.
+-   [prettier](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter.
+-   [eslint](https://github.com/eslint/eslint) - ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
 ## Contributing
 
@@ -40,7 +42,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-- **Iagor Moraes** - _Initial work_ - [Iagorm](https://github.com/iagorm)
+-   **Iagor Moraes** - _Initial work_ - [Iagorm](https://github.com/iagorm)
 
 See also the list of [contributors](https://github.com/iagorm/brazil-correios-tracking/graphs/contributors) who participated in this project.
 
