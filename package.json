@@ -1,12 +1,14 @@
 {
     "name": "brazil-correios-tracking",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "main": "index.js",
     "repository": "https://github.com/iagorm/brazil-correios-tracking",
     "license": "MIT",
     "scripts": {
         "start": "node ./index.js",
-        "lint": "./node_modules/.bin/eslint *.js"
+        "lint": "./node_modules/.bin/eslint *.js",
+        "test": "mocha ./tests/*.test.js --timetout 10000 --exit",
+        "test-debug": "mocha --inspect ./tests/*.test.js --timetout 10000 --exit"
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.3",
@@ -14,9 +16,12 @@
         "request": "^2.88.0"
     },
     "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
         "eslint": "^6.5.1",
         "eslint-config-prettier": "^6.3.0",
         "eslint-plugin-prettier": "^3.1.1",
+        "mocha": "^6.2.1",
         "prettier": "^1.18.2"
     }
 }
