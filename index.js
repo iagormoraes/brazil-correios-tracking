@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const packageRouter = require('./routes/package');
+const routes = require('./routes');
 
 // routes
-app.use(packageRouter);
+app.use('/v1', routes);
 
 /*eslint no-console:*/
 app.listen(process.env.PORT || 8081, () => console.log('server running'));
