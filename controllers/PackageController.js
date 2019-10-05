@@ -14,17 +14,24 @@ PackageController.getPackage = async (req, res) => {
 PackageController.getPackages = async (req, res) => {
     try {
         const packageIds = req.query.id;
-        const packInfos = [];
-        for (let index = 0; index < packageIds.length; index++) {
-            const packInfo = await packageService.getPackageInfo(packageIds[index]);
-            packInfos.push(packInfo);
-        }
-        packInfos.sort(sortPackInfoByProgress);
-        for (let index = 0; index < packInfos.length; index++) {
-            const packInfo = packInfos[index];
-            packInfo.packHistory = packInfo.packHistory.sort(sortPackHistoryByDate);
-        }
-        res.status(200).json(packInfos);
+        const promises = [];
+
+        if (!Array.isArray(packageIds)) throw 'must receive list of packages';
+
+        packageIds.forEach(packageId => {
+            promises.push(packageService.getPackageInfo(packageId));
+        });
+
+        let packList = (await Promise.all(promises))
+            .map(package => {
+                return {
+                    ...package,
+                    packHistory: package.packHistory.sort(sortPackHistoryByDate),
+                };
+            })
+            .sort(sortPackInfoByProgress);
+
+        res.status(200).json(packList);
     } catch (error) {
         res.status(404).json(error);
     }
