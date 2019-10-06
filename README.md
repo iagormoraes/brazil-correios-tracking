@@ -55,7 +55,8 @@ $ yarn start
             "type": "Objeto entregue ao destinatário",
             "description": ""
         },
-        ...
+        \.\.\.
+    \}
 ```
 #### GET /v1/package/OH756347842BR -- invalid code
 
