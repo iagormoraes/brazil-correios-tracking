@@ -56,7 +56,7 @@ $ yarn start
     }
 ```
 
-#### GET /v1/package?id[]=OH756347841BR&id[]=OH756347841BR -- using multiple package IDs
+#### GET `/v1/package?id[]=OH756347841BR&id[]=OH756347841BR` -- using multiple package IDs
 
 ```json
     {
