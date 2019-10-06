@@ -32,6 +32,55 @@ $ yarn start
 -   [prettier](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter.
 -   [eslint](https://github.com/eslint/eslint) - ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
+## Examples
+
+#### GET `/v1/package` -- no package/package list passed as parameters
+
+```json
+    "must receive list of packages"
+```
+
+#### GET `/v1/package/OH756347841BR` -- valid code
+
+```json
+    {
+        "progress": 100,
+        "packHistory": [...] ,
+        "userAgent": ...,
+        "acceptLanguage": ...,
+        "ip": ...,
+        "requestedDate": ...       
+    }
+```
+#### GET `/v1/package/OH756347842BR` -- invalid code
+
+```json
+    {
+        "message": "code dont exist!"
+    }
+```
+
+#### GET `/v1/package?id[]=OH756347841BR&id[]=OH756347841BR` -- using multiple package IDs
+
+```json
+    {
+    "packList": [
+            {
+                "progress": 100,
+                "packHistory": [...],
+            },
+            {
+                "progress": 100,
+                "packHistory": [...]
+            }
+        ],
+        "userAgent": ...,
+        "acceptLanguage": ...,
+        "ip": ...,
+        "requestedDate": ...
+    }
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
