@@ -32,6 +32,26 @@ $ yarn start
 -   [prettier](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter.
 -   [eslint](https://github.com/eslint/eslint) - ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
+## Examples
+
+### GET http://localhost:8080/v1/package
+
+```json
+    {
+        "progress": 100,
+        "packHistory": [
+            {
+                "info": {
+                    "date": "2019-09-19T18:30:00.000Z",
+                    "local": "BRASILIA/DF",
+                    "hour": "17:06"
+                },
+            "type": "Objeto entregue ao destinatário",
+            "description": ""
+        },
+        ...
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
