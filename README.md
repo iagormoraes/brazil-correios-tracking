@@ -34,7 +34,13 @@ $ yarn start
 
 ## Examples
 
-### GET http://localhost:8080/v1/package
+#### GET /v1/package -- no package/package list passed as parameters
+
+```json
+    "must receive list of packages"
+```
+
+#### GET /v1/package/OH756347841BR -- valid code
 
 ```json
     {
@@ -51,7 +57,13 @@ $ yarn start
         },
         ...
 ```
+#### GET /v1/package/OH756347842BR -- invalid code
 
+```json
+    {
+        "message": "code dont exist!"
+    }
+```
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
