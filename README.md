@@ -34,13 +34,13 @@ $ yarn start
 
 ## Examples
 
-#### GET /v1/package -- no package/package list passed as parameters
+#### GET `/v1/package` -- no package/package list passed as parameters
 
 ```json
     "must receive list of packages"
 ```
 
-#### GET /v1/package/OH756347841BR -- valid code
+#### GET `/v1/package/OH756347841BR` -- valid code
 
 ```json
     {
@@ -48,7 +48,7 @@ $ yarn start
         "packHistory": [...]        
     }
 ```
-#### GET /v1/package/OH756347842BR -- invalid code
+#### GET `/v1/package/OH756347842BR` -- invalid code
 
 ```json
     {
