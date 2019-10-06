@@ -45,7 +45,11 @@ $ yarn start
 ```json
     {
         "progress": 100,
-        "packHistory": [...]        
+        "packHistory": [...] ,
+        "userAgent": ...,
+        "acceptLanguage": ...,
+        "ip": ...,
+        "requestedDate": ...       
     }
 ```
 #### GET `/v1/package/OH756347842BR` -- invalid code
