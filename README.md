@@ -45,18 +45,8 @@ $ yarn start
 ```json
     {
         "progress": 100,
-        "packHistory": [
-            {
-                "info": {
-                    "date": "2019-09-19T18:30:00.000Z",
-                    "local": "BRASILIA/DF",
-                    "hour": "17:06"
-                },
-            "type": "Objeto entregue ao destinatário",
-            "description": ""
-        },
-        \.\.\.
-    \}
+        "packHistory": [...]        
+    }
 ```
 #### GET /v1/package/OH756347842BR -- invalid code
 
@@ -65,6 +55,28 @@ $ yarn start
         "message": "code dont exist!"
     }
 ```
+
+#### GET /v1/package?id[]=OH756347841BR&id[]=OH756347841BR -- using multiple package IDs
+
+```json
+    {
+    "packList": [
+            {
+                "progress": 100,
+                "packHistory": [...],
+            },
+            {
+                "progress": 100,
+                "packHistory": [...]
+            }
+        ],
+        "userAgent": ...,
+        "acceptLanguage": ...,
+        "ip": ...,
+        "requestedDate": ...
+    }
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
