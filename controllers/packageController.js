@@ -31,7 +31,6 @@ exports.getPackages = async (req, res) => {
 
         res.status(status.OK).json({ packList, ...req.requestUser });
     } catch (error) {
-        const { message } = error;
-        res.status(status.NOT_FOUND).json({ message });
+        res.status(status.NOT_FOUND).json({ message: error.message });
     }
 };
