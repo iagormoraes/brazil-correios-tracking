@@ -37,7 +37,9 @@ $ yarn start
 #### GET `/v1/package` -- no package/package list passed as parameters
 
 ```json
-    "must receive list of packages"
+{
+    "message": "must receive list of packages"
+}
 ```
 
 #### GET `/v1/package/OH756347841BR` -- valid code
